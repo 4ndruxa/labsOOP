@@ -1,5 +1,4 @@
 import { text } from "./text.js";
-console.log('Hello world');
 console.log(text);
 
 const LETTERS_QUANTITY = 5;
@@ -43,3 +42,4 @@ console.log(textFiltered);
 
 document.getElementById('text').innerHTML = `<p>${text}</p>`;
 document.getElementById('text-filtered').innerHTML = `<p>${textFiltered}</p>`;
+document.getElementById('code-view').innerHTML = `<a href="https://github.com/4ndruxa/labsOOP/blob/main/lab-3/lab-3.js">github</a>`;
