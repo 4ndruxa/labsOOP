@@ -4,7 +4,7 @@ class Collection {
     }
   
     createArray(...obj) {
-      this.arrayOfObjects = [...obj];
+      return this.arrayOfObjects = [...obj];
     }
   
     ascSort(property) {
@@ -39,8 +39,8 @@ class Collection {
 }
   
 class Car {
-    constructor(make, model, year, color, price) {
-      this.make = make;
+    constructor(brand, model, year, color, price) {
+      this.brand = brand;
       this.model = model;
       this.year = year;
       this.color = color;
@@ -57,8 +57,8 @@ const bmw = new Car("BMW", "m5", 2022, "Grey", 50000);
 const mazda = new Car("Mazda", "cx-5", 2020, "Red", 20000);
 const audi = new Car("Audi", "rs7", 2022, "Black", 80000);
   
-collectionFirst.createArray(toyota, ford, bmw, mazda, audi);
-collectionSecond.createArray(toyota, ford, bmw, mazda, audi);
+const arrFirst = collectionFirst.createArray(toyota, ford, bmw, mazda, audi);
+const arrSecond = collectionSecond.createArray(toyota, ford, bmw, mazda, audi);
   
 const carsSortedAscByPrice = collectionFirst.ascSort("price");
 console.log(carsSortedAscByPrice);
@@ -66,22 +66,22 @@ console.log(carsSortedAscByPrice);
 const carsSortedDescByYear = collectionSecond.descSort("year");
 console.log(carsSortedDescByYear);
 
-document.getElementById('collection').innerHTML = `
-    <p>
-        const toyota = new Car("Toyota", "Camry", 2021, "Red", 35000);
-        const ford = new Car("Ford", "Focus", 2018, "Grey", 27000);
-        const bmw = new Car("BMW", "m5", 2022, "Grey", 50000);
-        const mazda = new Car("Mazda", "cx-5", 2020, "Red", 20000);
-        const audi = new Car("Audi", "rs7", 2022, "Black", 80000);
-    </p>
-`;
-
-document.getElementById('collection-asc').innerHTML = `<p>${textFiltered}</p>`;
-document.getElementById('collection-desc').innerHTML = carsSortedDescByYear.map((el) => {
+const createMarkUp = function(collection) {
+  return collection.map((el) => {
     return `
         <ul>
+            <li><p>Brand</p><p>${el.brand}</p></li>
             <li><p>Model</p><p>${el.model}</p></li>
+            <li><p>Year</p><p>${el.year}</p></li>
+            <li><p>Color</p><p>${el.color}</p></li>
+            <li><p>Price</p><p>${el.price}</p></li>
         </ul>
     `
-});
-document.getElementById('code-view').innerHTML = `<a href="https://github.com/4ndruxa/labsOOP/blob/main/lab-3/lab-3.js">github</a>`;
+  }).join('');
+}
+
+document.getElementById('collection').innerHTML = createMarkUp(arrFirst);
+
+document.getElementById('collection-asc').innerHTML = createMarkUp(carsSortedAscByPrice);
+document.getElementById('collection-desc').innerHTML = createMarkUp(carsSortedDescByYear);
+document.getElementById('code-view').innerHTML = `<a href="https://github.com/4ndruxa/labsOOP/blob/main/lab-4/lab-4.js">github</a>`;
