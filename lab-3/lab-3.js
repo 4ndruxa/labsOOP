@@ -20,12 +20,7 @@ class StringChecker {
   
       for (let i = 0; i < words.length; i++) {
         let word = words[i];
-        if (word.endsWith(',')) {
-          continue;
-        };
-        if (word.endsWith('.')) {
-          continue;
-        };
+        word = word.replace(/[\.,]+$/, '');
         if (word.length === this.fixedQuantity && this.consonantLetters.includes(word[0])) {
           result += word + ' ';
         };

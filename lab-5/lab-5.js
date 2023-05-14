@@ -25,17 +25,11 @@ class Letter {
   class Sentence {
     constructor(sentence) {
       this.wordsAndPunctuationMarks = [];
-      let wordsAndPunctuationMarksArray = sentence.trim().split(/(\s+|\b)/g);
-      wordsAndPunctuationMarksArray = wordsAndPunctuationMarksArray.filter(function(el) {
-        return el.trim().length > 0;
-      });
+      let wordsAndPunctuationMarksArray = sentence.split(/(\s+|\b)/g);
       for (let i = 0; i < wordsAndPunctuationMarksArray.length; i++) {
         let currentElement = wordsAndPunctuationMarksArray[i];
-        if (currentElement === "." || currentElement === "," || currentElement === ";" || currentElement === ":" || currentElement === "!" || currentElement === "?") {
-          this.wordsAndPunctuationMarks.push(new PunctuationMark(currentElement));
-        } else {
-          this.wordsAndPunctuationMarks.push(new Word(currentElement));
-        }
+        currentElement = currentElement.replace(/[\.,]+$/, '');
+        this.wordsAndPunctuationMarks.push(new Word(currentElement));
       }
     }
   }
@@ -44,9 +38,6 @@ class Letter {
     constructor(text) {
       this.sentences = [];
       let sentencesArray = text.split(/[.?!]/g);
-      sentencesArray = sentencesArray.filter(function(el) {
-        return el.trim().length > 0;
-      });
       for (let i = 0; i < sentencesArray.length; i++) {
         let currentSentence = sentencesArray[i];
         this.sentences.push(new Sentence(currentSentence));
@@ -79,11 +70,14 @@ class Letter {
             }
           }
         }
-    
         return result;
       }
   };
     
-  const stringChecker = new StringChecker(text, LETTERS_QUANTITY, CONSONANT_LETTERS);
-  const textFiltered = stringChecker.getWordsWithFixedQuantity();
-  console.log(textFiltered);
+const stringChecker = new StringChecker(text, LETTERS_QUANTITY, CONSONANT_LETTERS);
+const textFiltered = stringChecker.getWordsWithFixedQuantity();
+console.log(textFiltered);
+
+document.getElementById('text').innerHTML = `<p>${text}</p>`;
+document.getElementById('text-filtered').innerHTML = `<p>${textFiltered}</p>`;
+document.getElementById('code-view').innerHTML = `<a href="https://github.com/4ndruxa/labsOOP/blob/main/lab-5/lab-5.js">github</a>`;
