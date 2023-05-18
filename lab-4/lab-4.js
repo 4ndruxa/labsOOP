@@ -69,13 +69,28 @@ console.log(carsSortedDescByYear);
 const createMarkUp = function(collection) {
   return collection.map((el) => {
     return `
-        <ul>
-            <li><p>Brand</p><p>${el.brand}</p></li>
-            <li><p>Model</p><p>${el.model}</p></li>
-            <li><p>Year</p><p>${el.year}</p></li>
-            <li><p>Color</p><p>${el.color}</p></li>
-            <li><p>Price</p><p>${el.price}</p></li>
-        </ul>
+      <table class="table-collection">
+        <tr>
+          <td class="collection-item-title">Brand:</td>
+          <td class="collection-item-value">${el.brand}</td>
+        </tr>
+        <tr>
+          <td class="collection-item-title">Model:</td>
+          <td class="collection-item-value">${el.model}</td>
+        </tr>
+        <tr>
+          <td class="collection-item-title">Year:</td>
+          <td class="collection-item-value">${el.year}</td>
+        </tr>
+        <tr>
+          <td class="collection-item-title">Color:</td>
+          <td class="collection-item-value">${el.color}</td>
+        </tr>
+        <tr>
+          <td class="collection-item-title">Price:</td>
+          <td class="collection-item-value">${el.price}</td>
+        </tr>
+      </table>
     `
   }).join('');
 }

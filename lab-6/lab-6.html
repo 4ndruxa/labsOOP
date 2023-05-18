@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/labs.css">
     <title>LAB - 6</title>
 </head>
 <body>
+    <a class="back" href="../index.html">На головну</a>
+    <div class="container">
+        <h2>Лабораторна робота №6</h2>
+        <h3>Таксопарк: </h3>
+        <div id="hierarchy"></div>
+        <h3>Вартість таксопарку: </h3>
+        <div id="hierarchy-costs"></div>
+        <h3>Таксопарк, відсортований <br> за витратами палива: </h3>
+        <div id="hierarchy-sorted"></div>
+        <label for="inputField">Введіть максимальну швидкість:</label>
+        <input type="text" id="inputFieldMax">
+        <label for="inputField">Введіть мінімальну швидкість:</label>
+        <input type="text" id="inputFieldMin">
+        <button id="saveButton">Знайти автомобілі за вказаним діапазоном</button>
+        <div id="hierarchy-filtered"></div>
+        <div id="code-view"></div>
+    </div>
     <script type="module" src="./lab-6.js"></script>
 </body>
 </html>

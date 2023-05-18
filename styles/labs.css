@@ -1,0 +1,48 @@
+.collection-columns {
+    display: flex;
+}
+
+.table-collection {
+    margin: 0.5rem;
+    border: 1px solid #000000;
+    width: 20rem;
+}
+
+.back {
+    padding: 2rem;
+    font-size: 16px;
+}
+
+.back:hover {
+    color: blue;
+}
+
+.collection-title {
+    height: 10rem;
+    width: 20rem;
+    margin: 0.5rem;
+    border: 1px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.table-hierarchy {
+    margin: 0.5rem;
+    border: 1px solid #000000;
+    width: 22rem;
+}
+
+#saveButton {
+    padding: 1rem;
+    background-color: rgb(159, 212, 194);
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
